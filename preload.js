@@ -15,4 +15,21 @@ window.addEventListener('DOMContentLoaded', () => {
   for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${type}-version`, process.versions[type])
   }
+
+  json = ipcRenderer.send('load-json');
 })
+
+const { contextBridge, ipcRenderer } = require('electron/renderer')
+
+// Exposed protected methods in the render process
+contextBridge.exposeInMainWorld(
+  // Allowed 'ipcRenderer' methods
+  'bridge', {
+      // From main to render
+      loadJson: (message) => {
+          ipcRenderer.on('loadJson', message);
+      }
+  }
+);
+
+

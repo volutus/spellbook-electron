@@ -5,13 +5,59 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>Electron Spellbook</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <h1 class="app-header"> Spellbook </h1>
+    
+    <div class="flex-container">
+      <div class="spell-list-container">
+        <input type="text" placeholder="Search..." id="list-filter">
+        <table id="spell-table" class="spell-list">
+          <tr>
+            <th>Name</th>
+            <th>Level</th>
+          </tr>
+        </table>
+      </div>
+      <div class="spell-feature">
+        <h2 id="spell-name"></h2>
+        <i id="spell-type"></i><br>
+
+        <div class="spell-attribute">
+          <label for="casting-time">Casting Time: </label>   
+          <span id="casting-time"></span>
+        </div>
+        
+        <div class="spell-attribute">
+          <label for="range">Range: </label> 
+          <span id="range"></span>
+        </div>
+        
+        <div class="spell-attribute">
+          <label for="components">Components: </label>
+          <span id="components"></span>
+        </div>
+
+        <div class="spell-attribute">
+          <label for="duration">Duration: </label>
+          <span id="duration"></span>
+        </div>
+
+        <div class="spell-attribute">
+          <label for="classes">Classes: </label>
+          <span id="classes"></span>
+        </div>
+
+        <div id="description"></div><br><br>
+        
+        <div class="spell-attribute">
+          <label for="higher-levels">At Higher Levels: </label>
+          <span id="higher-levels"></span>
+        </div>
+      </div>
+
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
