@@ -1,3 +1,5 @@
 node_modules
-res
-builds
+res/*
+!res/.gitkeep
+builds/*
+!builds/.gitkeep
