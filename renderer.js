@@ -100,10 +100,12 @@ function selectSpell(name)
             document.getElementById("description").appendChild(newDiv);
         }
 
+        let higherLevels = "";
         if (spell.higher_levels != undefined)
         {
-            document.getElementById("higher-levels").innerText = spell.higher_levels;
+            higherLevels = spell.higher_levels;
         }
+        document.getElementById("higher-levels").innerText = higherLevels; 
     }
 }
 
